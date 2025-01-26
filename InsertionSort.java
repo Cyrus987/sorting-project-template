@@ -1,32 +1,24 @@
-import java.util.Arrays;
-
 public class InsertionSort implements Sorter {
 
     public void sort(int[] input) {
-        InsertionSort(input, input.length);
+        insertionSort(input);  
+        System.out.println("Insertion Sort!!!!");
     }
 
-     /**
-     *  Description of the Method
-     *
-     * @param  list  reference to an array of integers to be sorted
-     */
-    public void InsertionSort(int [] list, int n){
-        if (n < 2)
-        {
-            return;
-        }
-        int i,j,temp;
-        for(i=1;i<list.length;i++){
-            j = i-1; 
-            while(i>0 && list[j] > list[i]){
-                temp = list[i];
-                list[i] = list[j];
-                list[j] = temp;
+    public void insertionSort(int[] list) {
+        int i, j, temp;
+        for (i = 1; i < list.length; i++) {
+            temp = list[i];   
+            j = i - 1;        
+
+            
+            while (j >= 0 && list[j] > temp) {
+                list[j + 1] = list[j];
+                j--; 
             }
-        }
-        System.out.println("insetion sorting!!!");
-    }
-    
-    }
 
+            
+            list[j + 1] = temp;
+        }
+    }
+}
